@@ -1,26 +1,20 @@
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 public class WriteSingleLine {
     public static void main(String[] args) {
-        appendLine("New Line", "src/WriteSingleLine.txt");
-
+        String content = "Hello";
+        String path = "C:\\Users\\abbel\\IdeaProjects\\alena druhy\\WriteSingleLine.txt";
+        try {
+            Files.write(Paths.get(path), content.getBytes(StandardCharsets.UTF_8));
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Didn't write into file");
+        }
 
     }
 
-        private static void appendLine(String lineToAppend, String file){
-            try {
-                Files.write(Paths.get(file),lineToAppend, StandardOpenOption.APPEND);
 
-                System.out.println("Data successfully append to a file.");
-
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                System.out.println("Cant append to a file name:");
-            }
-        }
 }
-
