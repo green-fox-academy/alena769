@@ -25,10 +25,7 @@ public class Main {
             if (pokemon.isEffectiveAgainst(wildPokemon)) {
                 System.out.print("I choose you, " + pokemon.name);
             }
-
         }
-
-
     }
 
     private static List<Pokemon> initializePokemons() {
