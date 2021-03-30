@@ -1,0 +1,13 @@
+ What the hell does this mean?
+using System;
+
+namespace MyFirstApp
+{
+    class Program  Why can't I just call print() like in Python???
+    {
+        static void Main(string[] args)
+        {
+            /* I wish I could use single quotes like in JavaScript :/ */
+            string message = "Hello World!!";
+
+             I sure hope that there is a better way to check
