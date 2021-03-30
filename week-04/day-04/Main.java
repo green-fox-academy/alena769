@@ -10,6 +10,8 @@ public class Main {
        // newTask.addNewTask("");
         ArgumentHandler.handleArgument(args);
         //RemoveTask removeTask = new RemoveTask();
+        newTask.printAllTasks();
+
 
     }
 }
