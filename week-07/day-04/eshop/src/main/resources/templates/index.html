@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="shop.css">
+    <title>Home</title>
+</head>
+<body>
+<h1>My Shop</h1><br>
+
+<div th:fragment="topNavbar" id="topNavBar">
+    <ul id="ulNavbar">
+        <li><a class="active" href="/home">Home</a>
+        </li>
+        <li><a href="/only-available">Only Available</a>
+        </li>
+        <li><a href="/cheapest">Cheapest First</a>
+        </li>
+        <li><a href="/nike">Contains Nike</a>
+        </li>
+        <li><a href="/average">Average Stock</a>
+        </li>
+        <li><a href="/expensive">Most Expensive Available</a>
+        </li>
+        <li><a href="/eur">EURO</a>
+        </li>
+
+    </ul>
+</div>
+<form action="/search" method="post">
+    <label for="search"></label>
+    <input type="text" id ="search" name="search" placeholder=".... something like Nike"></br>
+    <button type="submit">Search</button>
+</form>
+<table>
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Price</td>
+        <td>Quantity of stock</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="ShopItem: ${shopItemList}">
+        <td th:text="${ShopItem.getName()}"></td>
+        <td th:text="${ShopItem.getDescription()}"></td>
+        <td th:text="${#numbers.formatDecimal(ShopItem.getPrice(),0,'COMMA', 2, 'POINT')} +' '+ ${currency}"></td>
+        <td th:text="${ShopItem.getQuantity()}"></td>
+    </tr>
+    </tbody>
+
+</table>
+</body>
+</html>
