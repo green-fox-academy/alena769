@@ -1,0 +1,17 @@
+
+<div th:fragment="topNavBar(name)">
+    <h1>Fox Game</h1><br>
+
+    <ul id="ulNavbar">
+        <li><a class="active" href="/index">Home</a>
+        </li>
+        <li><a href="/login">Login</a>
+        </li>
+        <li><a href="/create">Create a Fox</a>
+        <li><a th:href="@{/info(name=${name})}">Information</a>
+        </li>
+        <li><a th:href="@{/nutrition(name=${name})}">Nutrition Store</a>
+        </li>
+        <li><a th:href="@{/tricks(name=${name})}">Trick Center</a>
+    </ul>
+</div>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div th:replace="header::topNavBar(name=${name})" id="topNavBar"></div>
+<h3>Lets eat and drink!</h3>
+
+<form th:action="'/nutrition?name='+ ${name} " method="post">
+    <label for="listOfFood">Choose the food</label>
+    <select id="listOfFood" name="food">
+        <option th:each="food: ${listOfFood}" th:value="${food}" th:text="${food.toString()}">
+        </option>
+    </select>
+
+    <label for="listOfDrink">Choose the drink</label>
+    <select name="drink" id="listOfDrink">
+        <option th:each="drink: ${listOfDrinks}" th:value="${drink}" th:text="${drink.toString()}">
+    </option>
+    </select>
+    <button>Change</button>
+</form>
+</body>
+</html>

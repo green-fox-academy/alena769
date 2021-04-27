@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div th:replace="header::topNavBar(name=${fox.getName()})" id="topNavBar"></div>
+<img src="greenfox.png">
+
+   <p th:text="'This is ' +${fox.getName()} + ' currently eating and drinking: ' + ${fox.getFood()} + ' and drinking ' + ${fox.getDrink()}"></p>
+<p th:if="${fox.getTricks().size()} != null" th:text="'I currently know:' + ${fox.getTricks().size()} + ' tricks!' "></p>
+
+
+<table th:if="${fox.getTricks().size()} != null">
+    <thead>
+    <tr>
+        <td style="font-size: 15px"><h3>Known Tricks</h3></td>
+    </tr>
+    </thead>
+    <tr th:each="trick: ${fox.getTricks()}">
+        <td th:text="${trick.getTrick()}"></td>
+    </tr>
+</table>
+<p th:unless="${fox.getTricks().size()} != null" th:text="'I dont know any tricks yet lets train!'"></p>
+
+</body>
+</html>

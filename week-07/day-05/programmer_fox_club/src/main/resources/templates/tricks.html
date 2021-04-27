@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<div th:replace="header::topNavBar(name=${name})" id="topNavBar"></div>
+<h3>Lets eat and drink!</h3>
+
+<form th:action="'/tricks?name=' + ${name}" method="post">
+
+    <label for="tricks">Choose the drink</label>
+    <select name="trick" id="tricks">
+        <option th:each="trick: ${tricks}" th:value="${trick.getTrick()}" th:text="${trick.getTrick()}">
+        </option>
+    </select>
+    <button>Change</button>
+</form>
+</body>
+</html>
