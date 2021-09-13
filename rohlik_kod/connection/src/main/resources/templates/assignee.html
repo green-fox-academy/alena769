@@ -1,0 +1,63 @@
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Assignee</title>
+</head>
+<body>
+<!--Serarch form-->
+<form action="/todo/assignee" method="get">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name">
+
+    <label for="email">Email</label>
+    <input type="text" id="email" name="email">
+
+    <button type="submit">Search</button>
+</form>
+
+<!--<table th:if="${isListedByName}">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <td>Assignees Listed by Name</td>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--        <td th:text="${foundAssigneeName.getName()}"></td>-->
+<!--        <td th:text="${foundAssigneeName.getEmail()}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+
+<!--<table th:unless="${isListedByName}">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <td>Assignees Listed by Email</td>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <td th:text="${foundAssigneeByEmail.getName()}"></td>-->
+<!--    <td th:text="${foundAssigneeByEmail.getEmail()}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+
+<!--Assignee table-->
+<h2>Assignees</h2>
+<table>
+    <thead>
+    <tr>
+     <th>name</th>
+     <th>email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="assignee: ${listOfAssignees}">
+        <td th:text="${assignee.getName()}"></td>
+        <td th:text="${assignee.getEmail()}"></td>
+        <td><a th:href="@{/todo/delete(id=${assignee.id})}">Delete</a></td>
+        <td><a th:href="@{/todo/edit(id=${assignee.id})}">Edit</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="shop.css">
+    <title>Home</title>
+</head>
+
+<body>
+<h2 th:text="${count}"></h2>
+<div th:replace="foxHeader::topNavBar"></div>
+
+<h1>Check student</h1>
+<form action="/gfa/check" method="post">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="nameToCheck">
+    <button type="submit">Check</button>
+</form>
+
+<p th:if="${isPresent}" th:text="${textForDisplay} +' is already signed up!'"></p>
+<p th:unless="${isPresent}" th:text="'Plese add ' +${textForDisplay}"></p>
+</body>
+</html>

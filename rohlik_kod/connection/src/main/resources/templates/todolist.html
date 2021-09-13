@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<p th:if="${isNull}" th:style="'color: red'" th:text="'Provide valid value for the query parameter'"></p>
+
+<!--Serarch form-->
+<form action="/todo/" method="get">
+    <label for="title">Title</label>
+    <input type="text" id="title" name="title">
+
+    <button type="submit">Search</button>
+</form>
+
+<!--Todos table-->
+<table>
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>TODO</td>
+        <td>DESCRIPTION</td>
+        <td>URGENCY</td>
+        <td>FINISHED</td>
+        <td>ASSIGNEE</td>
+        <td>DELETE</td>
+        <td>EDIT</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="todo: ${todos}">
+        <td th:text="${todo.getId()}"></td>
+        <td th:text="${todo.title}"></td>
+        <td th:text="${todo.urgent}"></td>
+        <td th:text="${todo.done}"></td>
+        <td th:text="${todo.assignee != null}?${todo.assignee.getName()}:'not selected'">
+        <td><a th:href="@{/todo/delete/todo(id=${todo.id})}">Delete</a></td>
+        <td><a th:href="@{/todo/edit/todo(id=${todo.id})}">Edit</a></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

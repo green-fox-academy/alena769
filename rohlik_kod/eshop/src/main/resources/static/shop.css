@@ -1,0 +1,31 @@
+body {
+    margin: auto;
+    background-color: white;
+}
+
+h1 {
+    font-size: 40px;
+    font-family: "Arial Black";
+    color: cyan;
+    text-decoration: underline;
+    text-decoration: cyan;
+}
+
+#topNavBar {
+
+}
+
+#ulNavbar {
+
+    display: table;
+    margin-left: auto;
+    margin-right: 0px;
+    padding: 20px 20px 20px;
+    list-style: none;
+}
+#ulNavbar.li {
+    display: inline-block;
+    border: 3px solid black;
+    background-color: crimson;
+    border-radius: 10px;
+}

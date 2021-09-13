@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Delete</title>
+</head>
+<body>
+<h1>Edit</h1>
+<p th:if="${assignee == null}">Wrong assignee</p>
+<form th:unless="${assignee == null}" th:action="'/todo/edit?id='+${assignee.getId()}" method="post">
+    <label for="name">Title</label>
+    <input type="text" id="name" name="name" th:value="${assignee.getName()}">
+
+    <label for="email">Done</label>
+    <input type="text" id="email" name="email" th:value="${assignee.getEmail()}">
+    <button>Change</button>
+</form>
+</body>
+</html>

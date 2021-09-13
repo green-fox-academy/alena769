@@ -45,7 +45,7 @@ public class FoxController {
         model.addAttribute("name", foxesService.findAFox(name).getName());
 
 
-        return "tricks";
+        return "trick";
     }
 
     @PostMapping(value = "/tricks")
